@@ -26,11 +26,9 @@ def tscreenshot(user):
 	userlastname = user.chat.last_name
 
 	bot.send_message(userchatid , "Taking Screen Shot.\n\nUploading...")
-	shot =ImageGrab.grab()
-	shot.save("ScreenShot.png")
-	photo = open("ScrenShot.png","rb")
-	bot.send_photo(userchatid , photo , caption="ScreenShot Taked.")
-	photo.close()
+	shot=ImageGrab.grab()
+	shot.save("ScreenShot.jpg")
+	bot.send_photo(userchatid,shot)
 	#--------------#
 
 def powersubmenu(user):
