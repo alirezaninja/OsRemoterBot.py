@@ -3,6 +3,8 @@ from telebot import types
 import os
 import random
 from PIL import ImageGrab
+from playsound import playsound
+
 print(" * Bot is Online *\n")
 print("#--------------#")
 #---------------#
@@ -67,6 +69,16 @@ def savetodb(user):
 	putfile("database/data-" + str(randn) + ".txt" , str(textnote))
 
 	bot.send_message(userchatid , "Payam Shoma Ba ID " + str(randn) + " Save Shod.")
+
+
+#--------------#
+
+def playsound_btn(user):
+	usertext = user.text
+	userchatid = user.chat.id
+
+	bot.send_message(userchatid,"Play soon...")
+	playsound("bani.mp3")
 
 #--------------#
 
@@ -133,6 +145,8 @@ def botmain(user):
 			powersubmenu(user)
 		if(usertext == "📸 ScreenShot 📸"):
 			tscreenshot(user)
+		if (usertext == "🎧 PlaySound 🎧"):
+			playsound_btn(user)
 	else:
 		bot.send_message(userchatid , "\"" +userfirstname +"\"" + " Aziz: \n Shoma Ejaze Estefade az Robat \"Alireza'sOSremoter\" ra Nadarid.\n\nBaray Estefade be ID @UrmiaCoder Moraje Farmaeid.\n\n-Chat Off-" , reply_markup=Dokmeha)		
 
